@@ -150,6 +150,9 @@ dmypy.json
 # profiling data
 .prof
 
+#npm
+node_modules/
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 

@@ -1,0 +1,23 @@
+{
+  "name": "aboutme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrunoGrifo/aboutme.git"
+  },
+  "author": "Bruno Grifo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrunoGrifo/aboutme/issues"
+  },
+  "homepage": "https://github.com/BrunoGrifo/aboutme#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
