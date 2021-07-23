@@ -2,13 +2,34 @@
 {% load static %}
 
 {% block content %}
-
+    
     {% block header %}
-    {% include 'navbar.html' %}
-    {% endblock %}
+        {%comment%}
+        {% include 'navbar.html' %}
+        {% endcomment %}
+    {% endblock header%}
 
-    {% block index %}
-    {% endblock index%}
+    {% block body %}
+    <div class="homepage">
+        <div class="center_column" >
+            <div class = "test">
+                <div>
+                    <p>Hi! My name is Bruno Grifo and this is this my personal website. Here you can learn a little bit about me and see some of the things i do outside work.</p>
+                    <p>Unfortunately this website is still on the making but i will launch it as quick as possible. See you soon!</p>
+                </div>
+            </div>
+            <div class="image">
+                <img src="/media/img/construction.svg" class="rounded" alt="In progress...">
+            </div>
+        </div>
+    </div>
+
+                
+
+      
+    {% endblock body%}
+    
+
     {% block footer %}
     {% endblock %}
 
