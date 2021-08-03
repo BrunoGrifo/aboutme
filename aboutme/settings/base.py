@@ -99,6 +99,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+# ----------------------
+# MEDIA CONFIGURATION
+# ----------------------
+
+MEDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'media')
+MEDIA_URL = '/media/'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -109,9 +116,3 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR_STATIC, 'dist'),
 )
 
-# ----------------------
-# MEDIA CONFIGURATION
-# ----------------------
-
-MEDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'media')
-MEDIA_URL = '/media/'
