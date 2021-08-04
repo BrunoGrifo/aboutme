@@ -21,9 +21,9 @@ DATABASES = {
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'live-static', 'static-root')
+# STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'dist')
 
-MERDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'live-static', 'media-root')
+# MERDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'dist')
 
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURE_SSL_REDIRECT = True
