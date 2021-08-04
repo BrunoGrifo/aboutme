@@ -1,0 +1,31 @@
+.center_column {
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.center_column > div p {
+  padding-top: 3%;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.center_column .test {
+  padding-bottom: 3%;
+}
+
+.image {
+  text-align: center;
+}
+
+.image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+html {
+  font-family: "Arial", Arial, serif;
+}
+
+/*# sourceMappingURL=/main.css.map */
