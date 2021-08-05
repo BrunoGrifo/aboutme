@@ -28,5 +28,5 @@ DATABASES = {
 
 # STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'live-static', 'static-root')
 
-# MERDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'live-static', 'media-root')
+# MEDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'live-static', 'media-root')
 # STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'dist')
