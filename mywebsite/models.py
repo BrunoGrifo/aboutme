@@ -31,9 +31,9 @@ class Tag(models.Model):
         return str(self.name)
 
 
-class Project(models.Model):
+class Project(BaseAbstractModel):
     title = models.CharField(max_length=120)
-    description = models.CharField(max_length=3000)
+    description = models.CharField(max_length=1000)
     tags = models.ManyToManyField(Tag, related_name='list_tags', editable=True)
     image = models.OneToOneField("ContentMultimediaFile", on_delete=models.SET_NULL, null=True, blank=True)
 
@@ -48,7 +48,7 @@ class Project(models.Model):
 
 class Paragraph(models.Model):
     id_name = models.CharField(max_length=120, unique=True)
-    body = models.CharField(max_length=3000)
+    body = models.TextField(max_length=3000)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     content = models.OneToOneField("ContentMultimediaFile", on_delete=models.SET_NULL, null=True, blank=True)
     
@@ -80,7 +80,7 @@ class ContentMultimediaFileType(models.Model):
 
 class ContentMultimediaFile(BaseAbstractModel):
     file_upload = models.FileField(
-        storage=FileSystemStorage(location=settings.MEDIA_ROOT+'files/'),
+        storage=FileSystemStorage(location=settings.MEDIA_ROOT),
         upload_to=get_upload_path_pp,
         validators=[
             FileValidator(
@@ -89,7 +89,7 @@ class ContentMultimediaFile(BaseAbstractModel):
             )
         ],
         default="default/", max_length=500)
-    file_thumb =  models.CharField(max_length=500, null=True, blank=True)
+    file_name =  models.CharField(max_length=500, null=True, blank=True)
     content_multimedia_file_type = models.ForeignKey(ContentMultimediaFileType, on_delete=models.PROTECT)
 
     class Meta:
@@ -111,8 +111,10 @@ class ContentMultimediaFile(BaseAbstractModel):
         super(ContentMultimediaFile, self).save(*args, **kwargs)
 
 
+    # def __str__(self): # pragma: no cover
+    #     return str(self.file_upload.path)
     def __str__(self): # pragma: no cover
-        return str(self.file_upload.path)
+        return str(self.file_name)
 
     def __unicode__(self):
         return self.file_upload.path
