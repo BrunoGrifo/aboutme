@@ -5,10 +5,15 @@ from django.http import HttpResponse
 from wsgiref.util import FileWrapper
 from django.views import View
 
+from .models import *
+
 
 # Create your views here.
 
 def index(request):
+    list = Project.objects.all().first()
+    print(list)
+    print(list.paragraph_set.all())
     return render(request, 'homepage.html')
 
 

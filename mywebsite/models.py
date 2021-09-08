@@ -43,7 +43,7 @@ class Project(BaseAbstractModel):
         verbose_name_plural = "Projects"
 
     def __str__(self): # pragma: no cover
-        return str(self.name)
+        return str(self.title)
 
 
 class Paragraph(models.Model):
@@ -60,7 +60,7 @@ class Paragraph(models.Model):
         verbose_name_plural = "Paragraphs"
 
     def __str__(self): # pragma: no cover
-        return str(self.name)
+        return str(self.id_name)
 
 class ContentMultimediaFileType(models.Model):
     IMAGE = 1
