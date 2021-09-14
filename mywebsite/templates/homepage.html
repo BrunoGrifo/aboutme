@@ -37,11 +37,11 @@
             
         </div>
         <div class="sub_container white_container" >
-            <div class="shader1">
+            <!-- <div class="shader1">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
                 </svg>
-            </div>
+            </div> -->
             <div class="title">
                 <p>Main Outdoors Activities</p>
 
@@ -70,11 +70,11 @@
             
         </div>
         <div class="sub_container black_container" >
-            <div class="shader2">
+            <!-- <div class="shader2">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
                 </svg>
-            </div>
+            </div> -->
             <div class="title">
 
                 <p>Hoobies</p>
@@ -93,13 +93,13 @@
             </div>
 
             <div class="description">
-                    When it comes to hobbies, althought i have a lot of them, like most people, i usually do same three, which are video games, movies or tv series and working on my project ideias or coding. I don't like to play single player games so i only go online when my friends are on discord. When my girlfriend is at home, we usually watch some Netflix and althought is not that often, we recently start to assemble puzzles. Since i moved to Lisbon when i'm alone and i don't feel like playing, i've started to work on my own projects/ideias.
+                    When it comes to hobbies, althought i have a lot of them, like most people do, i usually go for the same three, which are video games, movies or tv series and working on my project ideias or coding. I don't like to play single player games so i only go online when my friends are on discord and when my girlfriend is at home, we usually watch some Netflix and althought is not that often, we recently started to assemble puzzles. Since i moved to Lisbon, when i'm alone and i don't feel like playing, i've been enjoying myself working on my own projects/ideias.
             </div>
-            <div class="footer-svg-white">
+            <!-- <div class="footer-svg-white">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
                 </svg>
-            </div>
+            </div> -->
         </div>
 
         <div class="sub_container white_container projects" >
@@ -109,52 +109,39 @@
                 <p>Mini Projects</p>
 
             </div>
-              
+            <div class="description">
+                I've always loved to do coding projects and participate on hackathons and engineering competitions during my journey in college, however, and spite of having a lot of cool ideas, i've never really dedicated myself to my own mini projects. That changed a little bit in 2021 Spring. Being locked down by the covid-19 pandemic and unhappy with my job at the time, this was a way of keep learning about things that i like. I plan on keep working on my own ideas and this section will serve as a blog for that.
+            </div>
               <section class="timeline">
 
-                 
-              
-                  <div class="timeline-item">
-              
-                    <div class="timeline-img"></div>
-              
-                    <div class="timeline-content timeline-card ">
-                      <div class="timeline-img-header">
-                        <h2>Card Title</h2>
-                      </div>
-                      <div class="date">25 MAY 2016</div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
-                      <a class="bnt-more" href="">More</a>
-                    </div>
-              
-                  </div>   
-              
-                  
-              
-                  <div class="timeline-item">
-              
-                    <div class="timeline-img"></div>
-              
-                    <div class="timeline-content timeline-card ">
-                      <div class="timeline-img-header">
-                        <h2>Card Title</h2>
-                      </div>
-                      <div class="date">10 JULY 2016</div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime ipsa ratione omnis alias cupiditate saepe atque totam aperiam sed nulla voluptatem recusandae dolor, nostrum excepturi amet in dolores. Alias, ullam.</p>
-                      <a class="bnt-more" href="">More</a>
-                    </div>
-                  </div>   
-              
-                  
+                {% for project in projects%}
+
+                    <div class="timeline-item">
+                
+                        <div class="timeline-img"></div>
+                
+                        <div class="timeline-content timeline-card ">
+                        <div class="timeline-img-header" style="background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .4)), url('{{project.image.file_upload.url}}') center center no-repeat; background-size: cover;">
+                            <h2>{{project.title}}</h2>
+                        </div>
+                        <div class="date">{{ project.added|date:"M d, Y" }}</div>
+                        <p>{{project.description}}</p>
+                        <a class="bnt-more" href="{% url 'mywebsite:ProjectView' project.id %}">More</a>
+                        </div>
+                
+                    </div> 
+
+                {% endfor %}
+                   
             
-              </section>
-              
-            <div class="footer-svg">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-                </svg>
-            </div>
+            </section>
+            
         </div>
+        <!-- <div class="footer-svg">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+            </svg>
+        </div> -->
     </div>  
       
 {% endblock body%}

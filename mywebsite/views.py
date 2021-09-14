@@ -11,10 +11,23 @@ from .models import *
 # Create your views here.
 
 def index(request):
-    list = Project.objects.all().first()
-    print(list)
-    print(list.paragraph_set.all())
-    return render(request, 'homepage.html')
+    context = {
+        "projects": Project.objects.all()
+    }
+    return render(request, 'homepage.html', context)
+
+
+class ProjectView(View):
+
+    http_method_names = ["get", "post"]
+
+
+    def get(self, request, pk, *args, **kwargs):
+        context = {
+            "project": Project.objects.filter(id=pk)
+        }
+        return render(request, 'post.html', context)
+
 
 
 class Resume(View):
@@ -28,10 +41,6 @@ class Resume(View):
         response['Content-Disposition'] = 'attachment; filename=brunogrifo.pdf'
         f.close()
         return response
-
-        # f = open(settings.MEDIA_URL+'files/BrunoGrifo.pdf', 'rb').read()
-        # return HttpResponse(f, mimetype='application/pdf')
-
 
     # def post(self, request, pk, *args, **kwargs):
     #     return 
