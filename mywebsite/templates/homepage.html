@@ -4,9 +4,7 @@
 {% block body %}
     <div class="container">
         <div class="sub_container black_container" >
-            <div class="alert">
-                <strong>Warning!</strong> The layout for tablets and smartphones is still on the making so you may experience some unformatted elements below width 1150px.
-              </div>
+            
 
             <div class="title_slide">
 
@@ -24,7 +22,7 @@
                     <p>In college i was a member of <a href="http://www.jest.pt" target="_blank">JEST</a> which is basically a bunch os cool and smart people.</p>
                     <p>I am into cocktail mixology and wine tasting.</p>
                     <p>I love tennis and i want to believe that, one day, i'll be as good as Roger Federer.</p>
-                    <p>I have a <a href="/media/files/BrunoGrifo.pdf" target="_blank">resumé</a> because it is kind of mandatory, so go ahead and click on that.</p>
+                    <p>I have a <a href="{% url 'mywebsite:Resume' %}" target="_blank">resumé</a> because it is kind of mandatory, so go ahead and click on that.</p>
                     <p>I'm just a common guy from any reasonable prespective.</p>
                     <p>I'm a hero from my mom's prespective.</p>
                 </div>
@@ -37,11 +35,6 @@
             
         </div>
         <div class="sub_container white_container" >
-            <!-- <div class="shader1">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-                </svg>
-            </div> -->
             <div class="title">
                 <p>Main Outdoors Activities</p>
 
@@ -65,7 +58,7 @@
                         <div class="item" style="background-image: url('/media/img/trail.jpeg');"></div>
                         <div class="item" style="border-top-right-radius: 20px;
                         border-bottom-right-radius: 20px;
-                        background-image: url('/media/img/bycicle.jpg');"></div>
+                        background-image: url('/media/img/bycicle.jpeg');"></div>
                     </div>
                     </div>
                 </div>
@@ -74,11 +67,6 @@
             
         </div>
         <div class="sub_container black_container" >
-            <!-- <div class="shader2">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-                </svg>
-            </div> -->
             <div class="title">
 
                 <p>Hoobies</p>
@@ -99,11 +87,6 @@
             <div class="description">
                     When it comes to hobbies, althought i have a lot of them, like most people do, i usually go for the same three, which are video games, movies or tv series and working on my project ideias or coding. I don't like to play single player games so i only go online when my friends are on discord and when my girlfriend is at home, we usually watch some Netflix and althought is not that often, we recently started to assemble puzzles. Since i moved to Lisbon, when i'm alone and i don't feel like playing, i've been enjoying myself working on my own projects/ideias.
             </div>
-            <!-- <div class="footer-svg-white">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-                </svg>
-            </div> -->
         </div>
 
         <div class="sub_container white_container projects" >
@@ -141,11 +124,7 @@
             </section>
             
         </div>
-        <!-- <div class="footer-svg">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-            </svg>
-        </div> -->
+        
     </div>  
       
 {% endblock body%}

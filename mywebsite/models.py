@@ -17,6 +17,10 @@ def get_upload_path_pp(instance, filename):
         _, extension = os.path.splitext(filename)
         return f"files_uploaded/{uuid.uuid4()}{extension}"
 
+def get_upload_path_file(instance, filename):
+        name, extension = os.path.splitext(filename)
+        return f"{name}{extension}"
+
 
 # Create your models here.
 
@@ -89,6 +93,14 @@ class ContentMultimediaFileType(models.Model):
     def __str__(self): # pragma: no cover
         return str(self.content_multimedia_file_type)
 
+class CV(BaseAbstractModel):
+    file_upload = models.FileField(storage=FileSystemStorage(location=settings.MEDIA_ROOT+"/files/"),
+                                    upload_to=get_upload_path_file)
+
+    class Meta:
+        db_table = "db_cv"
+        verbose_name = "cv"
+        verbose_name_plural = "cv"
 
 class ContentMultimediaFile(BaseAbstractModel):
     file_upload = models.FileField(

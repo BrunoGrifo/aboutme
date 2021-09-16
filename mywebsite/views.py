@@ -4,6 +4,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from wsgiref.util import FileWrapper
 from django.views import View
+from django.http import FileResponse
 
 from .models import *
 
@@ -54,12 +55,7 @@ class Resume(View):
 
 
     def get(self, request, *args, **kwargs):
-        print(settings.MEDIA_URL)
-        f = open(settings.MEDIA_URL+'files/brunogrifo.pdf', "rb").read()
-        response = HttpResponse(FileWrapper(f), content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename=brunogrifo.pdf'
-        f.close()
-        return response
-
-    # def post(self, request, pk, *args, **kwargs):
-    #     return 
+        with open(settings.MEDIA_ROOT+'/files/brunogrifo.pdf', "rb") as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=brunogrifo.pdf'
+            return response 
