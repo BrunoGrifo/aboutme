@@ -60,7 +60,7 @@
     }
 
     .black_container .intro{
-        font-size: 1.4vw;
+        font-size: max(10px, 1.4vw);
         float: left;
         
     }
@@ -138,22 +138,6 @@
         from { bottom: 5px}
         to { bottom: 20px}
     }
-
-    div.scroll-up{
-        position: absolute;
-        left: 50%;
-        bottom: 3px;
-        overflow: auto;
-        -ms-transform: translate(-50%, -1%);
-        -webkit-transform: translate(-50%,-1%);
-        transform: translate(-50%, -1%);
-        z-index: 2;
-
-    }
-    div.scroll-up img{
-        width: 40px; 
-        height: auto;
-    }
     
 
     .description{
@@ -161,7 +145,7 @@
         text-justify: inter-word;
         padding-right: 8vw;
         padding-left: 8vw;
-        font-size: 1.4vw;
+        font-size: max(12px, 1.4vw);
     } 
 
 
@@ -201,37 +185,29 @@
     .container-general .gallery-wrap .item:hover {
         flex: 7;
     }
-    .wrap-effect .item:first-of-type {
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        background-image: url('/assets/padel.jpeg');
-    }
-    .wrap-effect .item:nth-of-type(2) {
-        background-image: url('/assets/tenis.jpeg');
-    }
-    .wrap-effect .item:nth-of-type(3) {
-        background-image: url('/assets/swim.jpg');
-    }
-    .wrap-effect .item:nth-of-type(4) {
-        background-image: url('/assets/surf.jpeg');
-    }
-    .wrap-effect .item:nth-of-type(5) {
-        background-image: url('/assets/trail.jpeg');
-    }
-    .wrap-effect .item:last-of-type {
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        background-image: url('/assets/bycicle.jpg');
-    }
-    
+    // .wrap-effect .item:first-of-type {
+    //     border-top-left-radius: 20px;
+    //     border-bottom-left-radius: 20px;
+    //     background-image: url('/assets/padel.jpeg');
+    // }
+    // .wrap-effect .item:nth-of-type(2) {
+    //     background-image: url('/assets/tenis.jpeg');
+    // }
+    // .wrap-effect .item:nth-of-type(3) {
+    //     background-image: url('/assets/swim.jpg');
+    // }
+    // .wrap-effect .item:nth-of-type(4) {
+    //     background-image: url('/assets/surf.jpeg');
+    // }
+    // .wrap-effect .item:nth-of-type(5) {
+    //     background-image: url('/assets/trail.jpeg');
+    // }
+    // .wrap-effect .item:last-of-type {
+    //     border-top-right-radius: 20px;
+    //     border-bottom-right-radius: 20px;
+    //     background-image: url('/assets/bycicle.jpg');
+    // }
 
-    .container-general .gallery-wrap .item .subtitle{
-        position: absolute;
-        padding-top: 10%;
-        margin: 0;
-        /* border: 1px solid blue; */
-
-    }
     
     .alert{ display: none; }
 

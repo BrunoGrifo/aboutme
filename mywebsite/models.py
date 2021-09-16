@@ -6,6 +6,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 from grifo_utils.paths.validators import FileValidator
 from grifo_utils.db.abstract_models import BaseAbstractModel
+from colorfield.fields import ColorField
 
 
 def get_extension(instance, filename):
@@ -32,10 +33,21 @@ class Tag(models.Model):
 
 
 class Project(BaseAbstractModel):
+
+    COLOR_CHOICES = [
+        ("#19C801", "green"),
+        ("#FCF900", "yellow"),
+        ("#F50B0B", "red"),
+        ("#0B2BF5", "blue"),
+        ("#129CFF", "baby blue"),
+        ("#E800D6", "purple")
+    ]
+
     title = models.CharField(max_length=120)
     description = models.CharField(max_length=1000)
     tags = models.ManyToManyField(Tag, related_name='list_tags', editable=True)
     image = models.OneToOneField("ContentMultimediaFile", on_delete=models.SET_NULL, null=True, blank=True)
+    color = ColorField(default='#129CFF')
 
     class Meta:
         db_table = "db_Project"

@@ -12,7 +12,7 @@ from .models import *
 
 def index(request):
     context = {
-        "projects": Project.objects.all()
+        "projects": Project.objects.filter(active=True)
     }
     return render(request, 'homepage.html', context)
 
@@ -23,8 +23,26 @@ class ProjectView(View):
 
 
     def get(self, request, pk, *args, **kwargs):
+        project = Project.objects.get(id=pk)
+        par_list = []
+        #print(project.paragraph_set.all().order_by('id_name'))
+        for pro in project.paragraph_set.all().order_by('id_name'):
+            if pro.content:
+                par_list.append({
+                    "body": pro.body,
+                    "path": pro.content.file_upload.url,
+                    "type": pro.content.content_multimedia_file_type.content_multimedia_file_type
+                })
+            else:
+                par_list.append({
+                    "body": pro.body,
+                    "path": None,
+                    "type": None
+                })
+
         context = {
-            "project": Project.objects.filter(id=pk)
+            "project": project,
+            "paragraphs": par_list
         }
         return render(request, 'post.html', context)
 
@@ -36,7 +54,8 @@ class Resume(View):
 
 
     def get(self, request, *args, **kwargs):
-        f = open(settings.MEDIA_URL+'files/BrunoGrifo.pdf', "rb").read()
+        print(settings.MEDIA_URL)
+        f = open(settings.MEDIA_URL+'files/brunogrifo.pdf', "rb").read()
         response = HttpResponse(FileWrapper(f), content_type='application/pdf')
         response['Content-Disposition'] = 'attachment; filename=brunogrifo.pdf'
         f.close()

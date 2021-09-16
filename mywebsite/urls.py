@@ -9,7 +9,7 @@ app_name = "mywebsite"
 urlpatterns = [
     path('', views.index),
     path('media/files/BrunoGrifo.pdf', views.Resume.as_view(), name="Resume"),
-     path('project/<int:pk>/', views.ProjectView.as_view(), name="ProjectView"),
+    path('project/<int:pk>/', views.ProjectView.as_view(), name="ProjectView"),
 
 
 
