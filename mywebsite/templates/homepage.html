@@ -85,7 +85,7 @@
             </div>
 
             <div class="description">
-                    When it comes to hobbies, althought i have a lot of them, like most people do, i usually go for the same three, which are video games, movies or tv series and working on my project ideias or coding. I don't like to play single player games so i only go online when my friends are on discord and when my girlfriend is at home, we usually watch some Netflix and althought is not that often, we recently started to assemble puzzles. Since i moved to Lisbon, when i'm alone and i don't feel like playing, i've been enjoying myself working on my own projects/ideias.
+                    When it comes to hobbies, althought i have a lot of them, like most people do, i usually go for the same three, which are <mark class="blue">video games</mark>, <mark class="blue">movies or tv series</mark> and working on my <mark class="blue">project ideias or coding</mark>. I don't like to play single player games so i only go online when my friends are on discord, and when my girlfriend is at home we usually watch some Netflix and althought is not that often, we recently started to assemble puzzles. Since i moved to Lisbon, when i'm alone and i don't feel like playing, i've been enjoying myself working on my own projects/ideias.
             </div>
         </div>
 
@@ -113,7 +113,7 @@
                         </div>
                         <div class="date">{{ project.added|date:"M d, Y" }}</div>
                         <p>{{project.description}}</p>
-                        <a class="bnt-more" href="{% url 'mywebsite:ProjectView' project.id %}">More</a>
+                        <a class="bnt-more" href="{% url 'mywebsite:ProjectView' project.id %}" target="_blank">More</a>
                         </div>
                 
                     </div> 
