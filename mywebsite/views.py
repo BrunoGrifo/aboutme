@@ -26,7 +26,7 @@ class ProjectView(View):
     def get(self, request, pk, *args, **kwargs):
         project = Project.objects.get(id=pk)
         par_list = []
-        #print(project.paragraph_set.all().order_by('id_name'))
+        print(project.tags.all())
         for pro in project.paragraph_set.all().order_by('id_name'):
             if pro.content:
                 par_list.append({

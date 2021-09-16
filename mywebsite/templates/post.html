@@ -9,7 +9,9 @@
         <h1>{{project.title}}</h1>
         </div>
         <div class="bottom">
-            <span>Python</span> 
+            {% for tag in project.tags.all%}
+            <span>{{tag.name}}</span>
+            {% endfor %}
         </div>
     </div>
     <div class="header-curve">
