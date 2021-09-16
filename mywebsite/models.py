@@ -7,6 +7,7 @@ from django.core.files.storage import FileSystemStorage
 from grifo_utils.paths.validators import FileValidator
 from grifo_utils.db.abstract_models import BaseAbstractModel
 from colorfield.fields import ColorField
+from grifo_utils.os.system import _delete_file
 
 
 def get_extension(instance, filename):
@@ -19,7 +20,7 @@ def get_upload_path_pp(instance, filename):
 
 def get_upload_path_file(instance, filename):
         name, extension = os.path.splitext(filename)
-        return f"{name}{extension}"
+        return f"files/{name}{extension}"
 
 
 # Create your models here.
@@ -94,13 +95,17 @@ class ContentMultimediaFileType(models.Model):
         return str(self.content_multimedia_file_type)
 
 class CV(BaseAbstractModel):
-    file_upload = models.FileField(storage=FileSystemStorage(location=settings.MEDIA_ROOT+"/files/"),
+    file_upload = models.FileField(storage=FileSystemStorage(location=settings.MEDIA_ROOT),
                                     upload_to=get_upload_path_file)
 
     class Meta:
         db_table = "db_cv"
         verbose_name = "cv"
         verbose_name_plural = "cv"
+
+    def save(self, *args, **kwargs):
+        _delete_file(settings.MEDIA_ROOT+"/files/brunogrifo.pdf")
+        super(CV, self).save(*args, **kwargs)
 
 class ContentMultimediaFile(BaseAbstractModel):
     file_upload = models.FileField(

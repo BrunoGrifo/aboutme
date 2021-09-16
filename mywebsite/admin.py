@@ -70,6 +70,9 @@ class ProjectClean(admin.ModelAdmin):
 
 
 
+
+
+
 admin.site.register(Tag)
 admin.site.register(CV)
 #admin.site.register(Project)
