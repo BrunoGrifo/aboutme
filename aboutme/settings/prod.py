@@ -20,7 +20,7 @@ DATABASES = {
 }
 
 #não faço a minima ideia do que meter aqui
-STATICFILES_STORAGE = 'aboutme.storage.WhiteNoiseStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
