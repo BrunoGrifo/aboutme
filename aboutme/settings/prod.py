@@ -6,7 +6,7 @@ DEBUG = os.environ.get('DEBUG') == 'True'
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-ALLOWED_HOSTS = json.loads(os.environ.get('ALLOWED_HOSTS'))
+ALLOWED_HOSTS = ["bgrifo-aboutme.herokuapp.com","www.bgrifo.com", "bgrifo.com"]
  
 DATABASES = {
     'default': {
