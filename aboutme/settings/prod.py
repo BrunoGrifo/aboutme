@@ -19,6 +19,7 @@ DATABASES = {
     }
 }
 
+#não faço a minima ideia do que meter aqui
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
