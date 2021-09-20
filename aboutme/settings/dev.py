@@ -26,7 +26,21 @@ DATABASES = {
     }
 }
 
-# STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'live-static', 'static-root')
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-# MEDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'live-static', 'media-root')
-# STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'dist')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR_STATIC, 'dist'),
+)
+STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'static')
+
+
+# ----------------------
+# MEDIA CONFIGURATION
+# ----------------------
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'media')
+MEDIA_URL = '/media/'
