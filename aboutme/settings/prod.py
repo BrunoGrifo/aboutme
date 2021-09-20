@@ -45,8 +45,9 @@ STATICFILES_DIRS = (
 )
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR_STATIC, 'media')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = 'https://{}/{}/'.format(AWS_S3_CUSTOM_DOMAIN, "media")
 
 LOGGING = {
     'version': 1,
