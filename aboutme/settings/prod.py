@@ -40,9 +40,6 @@ AWS_S3_FILE_OVERWRITE = False
 DEFAULT_FILE_STORAGE = 'core.storages.MediaStore'
 
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'dist'),
-)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
