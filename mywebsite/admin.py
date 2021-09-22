@@ -1,13 +1,22 @@
 from django.contrib import admin
-from grifo_utils.os.system import _delete_file
+import boto3
+from django.conf import Settings, settings
 
 from .models import *
 # Register your models here.
 
 
+BUCKET_NAME = settings.AWS_STORAGE_BUCKET_NAME
+
+
+
 def delete_content_model(modeladmin, request, queryset):
+    s3 = boto3.client(  's3',
+                    aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                    region_name = 'eu-west-2')
     for contentmultimediafile in queryset:
-        _delete_file(contentmultimediafile.file_upload.path)
+        s3.delete_object(Bucket=BUCKET_NAME, Key='media/'+str(contentmultimediafile.file_upload))
         contentmultimediafile.delete()
 
 @admin.register(ContentMultimediaFile)
@@ -25,9 +34,13 @@ class ContentClean(admin.ModelAdmin):
 
 
 def delete_paragraph_model(modeladmin, request, queryset):
+    s3 = boto3.client(  's3',
+                    aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                    region_name = 'eu-west-2')
     for paragraph in queryset:
         if paragraph.content:
-            _delete_file(paragraph.content.file_upload.path)
+            s3.delete_object(Bucket=BUCKET_NAME, Key='media/'+str(paragraph.content.file_upload))
             paragraph.content.delete()
         paragraph.delete()
 
@@ -46,12 +59,19 @@ class ParagraphClean(admin.ModelAdmin):
 
 
 def delete_project_model(modeladmin, request, queryset):
+    s3 = boto3.client(  's3',
+                    aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                    region_name = 'eu-west-2')
     for project in queryset:
         for paragraph in project.paragraph_set.all():
             if paragraph.content:
-                _delete_file(paragraph.content.file_upload.path)
+                s3.delete_object(Bucket=BUCKET_NAME, Key='media/'+str(paragraph.content.file_upload))
                 paragraph.content.delete()
             paragraph.delete()
+        if project.image:
+            s3.delete_object(Bucket=BUCKET_NAME, Key='media/'+str(project.image.file_upload))
+            project.image.delete()
         project.delete()
 
 @admin.register(Project)

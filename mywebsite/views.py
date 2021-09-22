@@ -1,6 +1,6 @@
 from django.http import response
 from django.shortcuts import render
-from django.conf import settings
+from django.conf import Settings, settings
 from django.http import HttpResponse
 from wsgiref.util import FileWrapper
 from django.views import View
@@ -13,7 +13,8 @@ from .models import *
 
 def index(request):
     context = {
-        "projects": Project.objects.filter(active=True)
+        "projects": Project.objects.filter(active=True),
+        "media_url": settings.MEDIA_FOLDER
     }
     return render(request, 'homepage.html', context)
 

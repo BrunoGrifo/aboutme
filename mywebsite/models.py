@@ -8,6 +8,14 @@ from grifo_utils.paths.validators import FileValidator
 from grifo_utils.db.abstract_models import BaseAbstractModel
 from colorfield.fields import ColorField
 from grifo_utils.os.system import _delete_file
+import boto3
+from django.conf import Settings, settings
+
+BUCKET_NAME = settings.AWS_STORAGE_BUCKET_NAME
+s3 = boto3.client(  's3',
+                    aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+                    aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+                    region_name = 'eu-west-2')
 
 
 def get_extension(instance, filename):
@@ -95,7 +103,7 @@ class ContentMultimediaFileType(models.Model):
         return str(self.content_multimedia_file_type)
 
 class CV(BaseAbstractModel):
-    file_upload = models.FileField(storage=FileSystemStorage(location=settings.MEDIA_ROOT),
+    file_upload = models.FileField(#torage=FileSystemStorage(location=settings.MEDIA_FOLDER),
                                     upload_to=get_upload_path_file)
 
     class Meta:
@@ -104,12 +112,13 @@ class CV(BaseAbstractModel):
         verbose_name_plural = "cv"
 
     def save(self, *args, **kwargs):
-        _delete_file(settings.MEDIA_ROOT+"/files/brunogrifo.pdf")
+        #_delete_file(settings.MEDIA_FOLDER+"/files/brunogrifo.pdf")
+        s3.delete_object(Bucket=BUCKET_NAME, Key='media/files/brunogrifo.pdf')
         super(CV, self).save(*args, **kwargs)
 
 class ContentMultimediaFile(BaseAbstractModel):
     file_upload = models.FileField(
-        storage=FileSystemStorage(location=settings.MEDIA_ROOT),
+        #storage=FileSystemStorage(location=settings.MEDIA_FOLDER),
         upload_to=get_upload_path_pp,
         validators=[
             FileValidator(

@@ -50,7 +50,12 @@ body{
 }
 
 .bottom{
+	position: relative;
 	text-align: center;
+	left: 50%;
+	width: 70%;
+    -ms-transform: translate(-50%, 0%);
+	transform: translate(-50%, 0%);
 
 }
 

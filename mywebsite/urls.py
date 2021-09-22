@@ -10,7 +10,4 @@ urlpatterns = [
     path('', views.index),
     path('media/files/cv', views.Resume.as_view(), name="Resume"),
     path('project/<int:pk>/', views.ProjectView.as_view(), name="ProjectView"),
-
-
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
