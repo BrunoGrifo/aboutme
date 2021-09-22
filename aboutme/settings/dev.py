@@ -50,25 +50,25 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3ManifestStaticStorage'
 
 
 
-# AWS_ACCESS_KEY_ID = ""
-# AWS_SECRET_ACCESS_KEY = ""
-# AWS_STORAGE_BUCKET_NAME = ""
-# AWS_S3_CUSTOM_DOMAIN = ""
-# AWS_DEFAULT_ACL = 'public-read'
+AWS_ACCESS_KEY_ID = ""
+AWS_SECRET_ACCESS_KEY = ""
+AWS_STORAGE_BUCKET_NAME = ""
+AWS_S3_CUSTOM_DOMAIN = ""
+AWS_DEFAULT_ACL = 'public-read'
 
-# AWS_LOCATION = 'static'
-# STATIC_URL = 'https://{}/{}/'.format(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
-
-# AWS_S3_FILE_OVERWRITE = False
-# DEFAULT_FILE_STORAGE = 'aboutme.storages.MediaStore'
+AWS_LOCATION = 'static'
+STATIC_URL = 'https://{}/{}/'.format(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR_STATIC, 'dist'),
-# )
-# STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'static')
+AWS_S3_FILE_OVERWRITE = False
+DEFAULT_FILE_STORAGE = 'aboutme.storages.MediaStore'
 
 
-# MEDIA_FOLDER = 'https://{}/media/'.format(AWS_S3_CUSTOM_DOMAIN)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR_STATIC, 'dist'),
+)
+STATIC_ROOT = os.path.join(BASE_DIR_STATIC, 'static')
+
+
+MEDIA_FOLDER = 'https://{}/media/'.format(AWS_S3_CUSTOM_DOMAIN)
 
