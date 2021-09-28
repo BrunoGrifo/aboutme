@@ -61,7 +61,7 @@ STATIC_URL = 'https://{}/{}/'.format(AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
 
 AWS_S3_FILE_OVERWRITE = False
-DEFAULT_FILE_STORAGE = 'aboutme.storages.MediaStore'
+DEFAULT_FILE_STORAGE = 'core.storages.MediaStore'
 
 
 STATICFILES_DIRS = (
