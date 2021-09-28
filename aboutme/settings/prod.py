@@ -19,7 +19,7 @@ DATABASES = {
     }
 }
 
-#não faço a minima ideia do que meter aqui
+
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3ManifestStaticStorage'
 
 
